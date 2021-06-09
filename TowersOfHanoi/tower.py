@@ -6,7 +6,7 @@ Date: June 8, 2021
 
 
 # Game Parameters
-NUMBER_OF_BLOCKS = 5
+NUMBER_OF_BLOCKS = 2
 NUMBER_OF_TOWERS = 3
 
 
@@ -47,7 +47,6 @@ def create_letters_and_blocks():
         letter_to_blocks[get_letter_from_index(i)] = []
     first_pole = get_letter_from_index(0)
     letter_to_blocks[first_pole] = list(range(NUMBER_OF_BLOCKS, 0, -1))
-    print(letter_to_blocks)  # TODO: remove print statement
 
 
 def get_letter_from_index(i):
@@ -116,9 +115,9 @@ def make_next_move():
         print("Valid Moves:", valid_moves)
         proposed_move = input("> ").upper()
         if proposed_move == "QUIT":
-            print("Thanks for playing!")
-            exit()
+            return(False)
     make_move(proposed_move)
+    return(True)
 
 
 def check_if_move_is_valid(proposed_move):
@@ -144,12 +143,13 @@ def make_move(proposed_move):
     end_blocks.append(block_to_move)
 
 
-def game_not_over():
+def player_has_won():
     for letter in letter_to_blocks:
         if letter != get_letter_from_index(0):
             if len(letter_to_blocks[letter]) == NUMBER_OF_BLOCKS:
-                return False
-    return True
+                print("Congratulations")
+                return True
+    return False
 
 
 def main():
@@ -165,19 +165,21 @@ def main():
 
     # Game Set-Up
     initialize_game()
-    display()
 
     # Game Play
-    while game_not_over():
-        make_next_move()
+    game_active = True
+    while game_active:
         display()
+        game_active = make_next_move()
+        if player_has_won():
+            display()
+            break
+        
 
     # Farewell Message
-    print("Congratulations!!!")
     print("Thanks for playing!")
 
 
 # Begin program if run directly
 if __name__ == '__main__':
     main()
-    exit()

@@ -113,9 +113,9 @@ def make_next_move():
     proposed_move = input("> ").upper()
     while proposed_move not in valid_moves:
         print("Invalid move entered. Please enter a valid move, or type quit.")
-        print("Moves List:", valid_moves)
-        proposed_move = input("> ")
-        if proposed_move == "quit":
+        print("Valid Moves:", valid_moves)
+        proposed_move = input("> ").upper()
+        if proposed_move == "QUIT":
             print("Thanks for playing!")
             exit()
     make_move(proposed_move)
@@ -152,28 +152,32 @@ def game_not_over():
     return True
 
 
+def main():
+    print(
+        f"""
+    {'='*65}
+    Welcome to Towes of Hanoi!
 
-# Main
+    {chr(10012)} Objective: Move the pyramid of levels from one pole to another
+    without placing any larger blocks on top of smaller blocks.
+    """
+    )
 
-print(
-    f"""
-{'='*65}
-Welcome to Towes of Hanoi!
-
-{chr(10012)} Objective: Move the pyramid of levels from one pole to another
-without placing any larger blocks on top of smaller blocks.
-"""
-)
-
-# Game Set-Up
-initialize_game()
-display()
-
-# Game Play
-while game_not_over():
-    make_next_move()
+    # Game Set-Up
+    initialize_game()
     display()
 
-# Farewell Message
-print("Congratulations!!!")
-print("Thanks for playing!")
+    # Game Play
+    while game_not_over():
+        make_next_move()
+        display()
+
+    # Farewell Message
+    print("Congratulations!!!")
+    print("Thanks for playing!")
+
+
+# Begin program if run directly
+if __name__ == '__main__':
+    main()
+    exit()

@@ -6,7 +6,7 @@ Date: June 8, 2021
 
 
 # Game Parameters
-NUMBER_OF_BLOCKS = 2
+NUMBER_OF_BLOCKS = 5
 NUMBER_OF_TOWERS = 3
 
 

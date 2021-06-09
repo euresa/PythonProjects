@@ -4,12 +4,14 @@ Author: Sam Eure
 Date: June 8, 2021
 """
 
+
+# Game Parameters
 NUMBER_OF_BLOCKS = 5
 NUMBER_OF_TOWERS = 3
 
 
 
-
+# Functions
 def initialize_game():
     initialize_grid()
     calculate_string_length()

@@ -48,8 +48,9 @@ def initialize_grid():
 
 
 def create_letters_and_blocks():
-    """Maps the identifier (i.e. A, B, C, ...) of each pole to the blocks on the pole.
-    Creates the global dictionary variable 'letter_to_blocks for other functions to access.
+    """Holds the core configuration of the game.
+    Maps the identifier (i.e. A, B, C, ...) of each pole to the blocks on the pole.
+    Creates the global dictionary variable 'letter_to_blocks' for other functions to access.
     """
 
     global letter_to_blocks

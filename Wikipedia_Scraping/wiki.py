@@ -34,6 +34,18 @@ class WikiScraper:
         """Returns human readable representation of class."""
         return f"{self.__class__.__qualname__} subject on {self.subject}"
 
+
+    @property
+    def subject(self):
+        return self._subject
+
+    @subject.setter
+    def subject(self, value):
+        if not hasattr(self, 'subject'):
+            self._subject = value
+        else:
+            print("Subject may not be changed once set.")
+    
     def _get_wiki_data(self, HTML_LINK: str, printing: bool = False) -> None:
         """Takes in a Wikipedia link and returns the natural language paragraphs,
         section titles, and hyperlinks found in the document.

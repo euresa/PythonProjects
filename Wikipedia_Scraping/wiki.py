@@ -26,6 +26,14 @@ class WikiScraper:
         else:
             print("Please provide a 'subject' or 'link' argument.")
 
+    def __repr__(self):
+        """Returns a string representation of the constructor for this objec."""
+        return f"{self.__class__.__qualname__}(subject = '{self.subject}')"
+
+    def __str__(self):
+        """Returns human readable representation of class."""
+        return f"{self.__class__.__qualname__} subject on {self.subject}"
+
     def _get_wiki_data(self, HTML_LINK: str, printing: bool = False) -> None:
         """Takes in a Wikipedia link and returns the natural language paragraphs,
         section titles, and hyperlinks found in the document.

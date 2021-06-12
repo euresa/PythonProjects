@@ -82,7 +82,7 @@ def create_letter_string(letter):
     in order to properly print them out underneath the towers."""
 
     border_string = " " * NUMBER_OF_BLOCKS
-    return "".join([border_string, " ", letter, border_string])
+    return "{0} {1}{0}".format(border_string, letter)
 
 
 def populate_grid():
@@ -121,7 +121,7 @@ def get_block_string(block):
 
     border_str = " " * (NUMBER_OF_BLOCKS - block)
     block_str = "@" * block
-    return "".join([border_str, block_str, "_", str(block), block_str, border_str])
+    return "{0}{1}_{2}{1}{0}".format(border_str, block_str, str(block))
 
 
 def show_grid():
@@ -243,6 +243,6 @@ Rules:
     print("Thanks for playing!")
 
 
-# Begin program if run directly
+# Don't start the game unless the module is run directly
 if __name__ == "__main__":
     main()
